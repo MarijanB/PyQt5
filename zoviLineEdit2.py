@@ -1,6 +1,8 @@
-from PyQt5.QtWidgets import *
-from PyQt5 import uic
 import sys
+
+from PyQt5 import uic
+from PyQt5.QtWidgets import *
+
 
 class MyForm(QDialog):
     def __init__(self):

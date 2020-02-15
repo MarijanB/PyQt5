@@ -1,6 +1,8 @@
 import sys
+
 from PyQt5.QtWidgets import *
 from demoLineEdit import *
+
 
 class MyForm(QDialog):
     def __init__(self):
