@@ -65,9 +65,12 @@ class MyForm(QDialog):
         if len(self.ui.lineEditSecondNumber.text()) != 0:
             b = float(self.ui.lineEditSecondNumber.text())
         else:
-            self.ui.labelResult.setText("Nemože se dijeliti s nulom")
-        kvocijent =round(a/b,5)
-        self.ui.labelResult.setText(f"Kvocijent je {str(kvocijent)}")
+            b=0
+        if b ==0:
+            self.ui.labelResult.setText("Ne može se djeliti sa nulom")
+        else:
+            kvocijent =round(a/b,5)
+            self.ui.labelResult.setText(f"Kvocijent je {str(kvocijent)}")
 
 
 
