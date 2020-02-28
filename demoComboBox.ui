@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>478</width>
+    <height>133</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <property name="verticalSpacing">
+    <number>20</number>
+   </property>
+   <item row="0" column="0">
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QLabel" name="label">
+       <property name="font">
+        <font>
+         <family>Calibri</family>
+         <pointsize>15</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Select your account type</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QComboBox" name="comboBoxAccountType">
+       <property name="font">
+        <font>
+         <family>Calibri</family>
+         <pointsize>15</pointsize>
+        </font>
+       </property>
+       <item>
+        <property name="text">
+         <string>Saving Account</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Current Account</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>New Item</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Recurring Deposit Account</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Fixed Deposit Account</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item row="1" column="0">
+    <widget class="QLabel" name="label_2">
+     <property name="font">
+      <font>
+       <family>Calibri</family>
+       <pointsize>15</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
