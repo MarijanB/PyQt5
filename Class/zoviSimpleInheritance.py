@@ -18,7 +18,7 @@ class Student:
 class Marks(Student):
     historyMarks = 0
     geographyMarks = 0
-    def __init__(self,code,name,historyMarks,geographyMarks = 0):
+    def __init__(self,code,name,historyMarks,geographyMarks ):
         Student.__init__(self,code,name)
         self.historyMarks =historyMarks
         self.geographyMarks = geographyMarks
