@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>846</width>
+    <height>601</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout_3">
+    <item row="0" column="0">
+     <widget class="QMdiArea" name="mdiArea">
+      <widget class="QWidget" name="subwindow">
+       <property name="windowTitle">
+        <string>Subwindow</string>
+       </property>
+       <widget class="QLabel" name="label">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>30</y>
+          <width>149</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>MS Sans Serif</family>
+          <pointsize>15</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>First sub window</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="subwindow_2">
+       <property name="windowTitle">
+        <string>Subwindow</string>
+       </property>
+       <widget class="QLabel" name="label_2">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>30</y>
+          <width>176</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>MS Sans Serif</family>
+          <pointsize>15</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Second sub window</string>
+        </property>
+       </widget>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>846</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuSubWindow_Wiew">
+    <property name="title">
+     <string>Windows</string>
+    </property>
+    <addaction name="actionSubWindow_View"/>
+    <addaction name="actionTabbed_Wiew"/>
+    <addaction name="actionCascade_View"/>
+    <addaction name="actionTile_View"/>
+   </widget>
+   <addaction name="menuSubWindow_Wiew"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionTabbed_Wiew">
+   <property name="text">
+    <string>Tabbed Wiew</string>
+   </property>
+  </action>
+  <action name="actionCascade_View">
+   <property name="text">
+    <string>Cascade View</string>
+   </property>
+  </action>
+  <action name="actionTile_View">
+   <property name="text">
+    <string>Tile View</string>
+   </property>
+  </action>
+  <action name="actionSubWindow_View">
+   <property name="text">
+    <string>SubWindow View</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
