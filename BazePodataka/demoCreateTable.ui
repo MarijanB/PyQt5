@@ -87,17 +87,7 @@
        </item>
        <item>
         <property name="text">
-         <string>varchar</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
          <string>text</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>double</string>
         </property>
        </item>
       </widget>
@@ -167,7 +157,7 @@
         </font>
        </property>
        <property name="text">
-        <string>TextLabeEnter table namel</string>
+        <string>TextLabeEnter table name</string>
        </property>
       </widget>
      </item>
