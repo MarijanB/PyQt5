@@ -15,7 +15,7 @@ class MyWindow(QWidget):
         super().__init__()
         self.ui = Ui_Main()
         self.ui.setupUi(self)
-
+        self.getRadnici()
         self.ui.btnNovi.clicked.connect(self.addRadnici)
 
         self.show()
@@ -23,6 +23,14 @@ class MyWindow(QWidget):
     def addRadnici(self):
         self.noviRadnik = DodajRadnike()
         self.close()
+
+    def getRadnici(self):
+        query = "SELECT id,Ime,prezime FROM radnici"
+        radnici = cur.execute(query).fetchall()
+        for radnik in radnici:
+            self.ui.listRadnika.addItem(str(radnik[0]) + "-" + radnik[1] +" " + radnik[2])
+
+
 
 
 class DodajRadnike(QWidget):
