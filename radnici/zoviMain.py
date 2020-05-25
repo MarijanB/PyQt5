@@ -60,11 +60,17 @@ class DodajRadnike(QWidget):
                 cur.execute(query, (Ime, prezime, telefon, email, slika, adresa))
                 con.commit()
                 QMessageBox.information(self, "Success", "Osoba je dodana")
+                self.close()
+                self.main =MyWindow()
             except:
                 QMessageBox(self, 'Warning', 'Osoba nije dodata u bazu podataka')
 
         else:
             QMessageBox.information(self, 'Warning', 'Polja nisu ispunjena')
+
+    def closeEvent(self,event):
+        self.main =MyWindow()
+
 
 
 if __name__ == '__main__':
