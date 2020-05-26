@@ -1,3 +1,4 @@
+from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 from main import *
 from dodajRadnike import *
@@ -16,7 +17,10 @@ class MyWindow(QWidget):
         self.ui = Ui_Main()
         self.ui.setupUi(self)
         self.getRadnici()
+        self.displayFirstRecord()
         self.ui.btnNovi.clicked.connect(self.addRadnici)
+        self.ui.listRadnika.itemClicked.connect(self.singleClick)
+
 
         self.show()
 
@@ -30,6 +34,49 @@ class MyWindow(QWidget):
         for radnik in radnici:
             self.ui.listRadnika.addItem(str(radnik[0]) + "-" + radnik[1] +" " + radnik[2])
 
+    def displayFirstRecord(self):
+        query = "SELECT * FROM radnici ORDER BY ROWid ASC LIMIT 1"
+        radnik = cur.execute(query).fetchone()
+        slika = QLabel()
+        slika.setPixmap(QPixmap("bazaSlika/" + radnik[5]))
+        Ime = QLabel(radnik[1])
+        prezime = QLabel(radnik[2])
+        telefon = QLabel(radnik[3])
+        email = QLabel(radnik[4])
+        adresa = QLabel(radnik[6])
+        self.ui.leftLayout.setVerticalSpacing(20)
+        self.ui.leftLayout.addRow(" ",slika)
+        self.ui.leftLayout.addRow("Ime: ", Ime)
+        self.ui.leftLayout.addRow("Prezime :", prezime)
+        self.ui.leftLayout.addRow("telefon :", telefon)
+        self.ui.leftLayout.addRow("Email :", email)
+        self.ui.leftLayout.addRow("Adresa:", adresa)
+
+    def singleClick(self):
+        for i in reversed(range(self.ui.leftLayout.count())):
+            widget = self.ui.leftLayout.takeAt(i).widget()
+
+            if widget is not None:
+                widget.deleteLater()
+
+        radnik = self.ui.listRadnika.currentItem().text()
+        id =radnik.split("-")[0]
+        query =("SELECT * FROM radnici WHERE id=?")
+        osoba = cur.execute(query,(id,)).fetchone()
+        slika = QLabel()
+        slika.setPixmap(QPixmap("bazaSlika/" + osoba[5]))
+        Ime = QLabel(osoba[1])
+        prezime = QLabel(osoba[2])
+        telefon = QLabel(osoba[3])
+        email = QLabel(osoba[4])
+        adresa = QLabel(osoba[6])
+        self.ui.leftLayout.setVerticalSpacing(20)
+        self.ui.leftLayout.addRow(" ", slika)
+        self.ui.leftLayout.addRow("Ime: ", Ime)
+        self.ui.leftLayout.addRow("Prezime :", prezime)
+        self.ui.leftLayout.addRow("telefon :", telefon)
+        self.ui.leftLayout.addRow("Email :", email)
+        self.ui.leftLayout.addRow("Adresa:", adresa)
 
 
 
@@ -49,10 +96,10 @@ class DodajRadnike(QWidget):
         self.fileName, ok = QFileDialog.getOpenFileName(self, 'Upload Image', '', 'Image Files (*.jpg *.png)')
         if ok:
             defaultImg = os.path.basename(self.fileName)
-            img = Image.open(self.fileName)
+            slika = Image.open(self.fileName)
 
-            img = img.resize(size)
-            img.save("bazaSlika/{}".format(defaultImg))
+            slika = slika.resize(size)
+            slika.save("bazaSlika/{}".format(defaultImg))
 
     def dodajRadnika(self):
         global defaultImg
